@@ -72,7 +72,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">phone Number</label>
           <input
             className="w-full"
             id="address"
@@ -86,7 +86,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">Alternative Phone number</label>
           <input
             className="w-full"
             id="city"
@@ -99,7 +99,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">Street/apartment</label>
           <input
             className="w-full"
             id="postalCode"
@@ -112,7 +112,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">Location</label>
           <input
             className="w-full"
             id="country"
