@@ -222,3 +222,4 @@ https://basir.thinkific.com/courses/build-ecommerce-website-like-amazon-by-next-
 
 ```
 # next-tailwind-amazona
+# next-tailwind-amazona
