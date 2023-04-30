@@ -85,22 +85,32 @@ export default function AdminProductEditScreen() {
       const {
         data: { signature, timestamp },
       } = await axios('/api/admin/cloudinary-sign');
-
-      const file = e.target.files[0];
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('signature', signature);
-      formData.append('timestamp', timestamp);
-      formData.append('api_key', process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY);
-      const { data } = await axios.post(url, formData);
+  
+      const files = e.target.files;
+      const formDataArr = [];
+      for (let i = 0; i < files.length; i++) {
+        const formData = new FormData();
+        formData.append('file', files[i]);
+        formData.append('signature', signature);
+        formData.append('timestamp', timestamp);
+        formData.append('api_key', process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY);
+        formDataArr.push(formData);
+      }
+      const uploadResults = await Promise.all(
+        formDataArr.map((formData) => axios.post(url, formData))
+      );
       dispatch({ type: 'UPLOAD_SUCCESS' });
-      setValue(imageField, data.secure_url);
-      toast.success('File uploaded successfully');
+      const imageUrls = uploadResults.map(
+        (result) => result.data.secure_url
+      );
+      setValue(imageField, imageUrls);
+      toast.success('Files uploaded successfully');
     } catch (err) {
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
       toast.error(getError(err));
     }
   };
+  
 
   const submitHandler = async ({
     name,
