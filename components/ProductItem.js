@@ -4,13 +4,13 @@ import React from 'react';
 
 export default function ProductItem({ product }) {
   return (
-  <div className="card shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-500 ease-in-out">
+  <div className="card shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-500 ease-in-out md:grid-cols-2 gap-4">
   <div>
   <Link href={`/product/${product.slug}`}>
     <img
       src={product.image}
       alt={product.name}
-      className="rounded-t-md h-56 w-full object-cover"
+      className="rounded-t-md h-80 w-full object-cover"
     />
         </Link>
         </div>
@@ -21,7 +21,7 @@ export default function ProductItem({ product }) {
         {product.name}
       </h2>
     </Link>
-          <p className="text-sm text-gray-500 mb-2">{product.brand}</p>
+          <p className="text-sm text-gray-500 pt-2">{product.brand}</p>
           <div />
     <p className="text-xl font-bold text-primary mb-4">KSH{product.price}</p>
   </div>

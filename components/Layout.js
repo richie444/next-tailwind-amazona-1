@@ -14,7 +14,7 @@ export default function Layout({children}) {
               <Navbar/>
           </div>
           
-          <DiscountBanner/>
+          <DiscountBanner className="mt-2"/>
           <main className="container m-auto  px-4">{children}</main>
 
           <div>
